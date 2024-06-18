@@ -2,7 +2,8 @@
 
 This folder contains code for optimization of control for residential Battery Energy Storage Systems (BESS) on day-ahead prices, created as part of the [Wattflex](https://projecten.topsectorenergie.nl/projecten/wattflex-ontwikkeling-van-cooperatieve-aggregator-diensten-36292) project. 
 
-In the Netherlands, households can opt for a dynamic contract, where electricity prices vary hourly as they are based on the EPEX day-ahead prices. For Wattflex, optimal control as well as profitability of a residential battery based on these day-ahead prices was studied. 
+
+In the Netherlands, households can opt for a dynamic contract, where electricity prices vary hourly as they are based on the EPEX day-ahead prices. For Wattflex, optimal control as well as profitability of a residential battery based on these day-ahead prices was studied. The results were published in [1], where also the full escription of the models discussed below are described.
 
 There are two situations distinguished: 
  1. The specific situation of **optimal control of a residential battery in the Netherlands under the current Dutch Net Metering (NM) arrangement** (salderingsregeling). In this situation, only the day-ahead prices themselves must be considered to determine optimal control. 
@@ -37,4 +38,7 @@ With a minimal required yield per cycle of €0.2, the yield for this day is €
 Notes:
 - The total charges in the example add up to 3.19 kWh, while the total discharge is 2.87 kWh, while the SoC at the end of the day is required to be equal to the SoC at the beginning of the day. This is due to the efficiency of the battery, which is set to 90% (0.9 * 3.19 = 2.87). 
 - In the example, hourly data is used. For actual application, this resolution is too low, as in hourly energy consumption/feed-in data, short peaks in power are averaged out. This might lead to an overestimation of how much energy solar surplus can be charged into the battery, as well as how much energy can be discharged for self-use. 
-- By setting *allow_grid_charge* and *allow_grid_discharge* both to False, the battery is controlled to optimize self-consumption. 
+- By setting *allow_grid_charge* and *allow_grid_discharge* both to False, the battery is controlled to optimize self-consumption.
+
+# Bibliography
+[1] Dam, M.R.; van der Laan, M.D. Techno-Economic Assessment of Battery Systems for PV-Equipped Households with Dynamic Contracts: A Case Study of The Netherlands. Energies 2024, 17, 2991. [https://doi.org/10.3390/en17122991](https://doi.org/10.3390/en17122991)
